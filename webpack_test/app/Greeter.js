@@ -14,7 +14,7 @@ import styles from './Greeter.css'; // css-loader, 放心使用把，相同的�
 class Greeter extends Component{
   render() {
     return (
-      <div className={styles.root'}> // 使用cssModule添加类名的方法
+      <div className={styles.root}> // 使用cssModule添加类名的方法
         {config.text}
       </div>
     );
