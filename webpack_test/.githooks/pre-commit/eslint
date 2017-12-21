@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+'use strict';
+
+let path = require('path');
+let childProcess = require('child_process');
+
+console.log('eslinting...');
+
+let lintTask = childProcess.fork('node_modules/eslint/bin/eslint.js', ['src', '-c', '.eslintrc']);
+
+lintTask.on('close', (code) => {
+    process.exit(code);
+});
