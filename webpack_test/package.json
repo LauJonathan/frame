@@ -8,8 +8,7 @@
     "server": "webpack-dev-server --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress",
-    "lint": "eslint ./ --cache --ignore-pattern .gitignore",
-    "validate": "npm ls"
+    "lint": "eslint ./ --cache --ignore-pattern .gitignore"
   },
   "pre-commit": [
     "lint"
@@ -37,7 +36,6 @@
     "html-webpack-plugin": "^2.30.1",
     "postcss-loader": "^2.0.9",
     "pre-commit": "0.0.9",
-    "precommit-hook": "^3.0.0",
     "react-transform-hmr": "^1.0.4",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
