@@ -15,24 +15,39 @@ module.exports = {
 		inline: true, // 源代码改变，实时刷新
         hot: true
 	},
+    // eslint: {
+    //     configFile: './.eslintrc'
+    // },
 	module: { // loaders,解析不可直接运行的文件成可运行文件
         rules: [
             {
-                test: /(\.jsx|\.js)$/,
-                use: {
-                    loader: "babel-loader"
-                    // options: { // babel的配置选项，详细信息，这里可以写在.babelrc中
-                    //     presets: [
-                    //         "env", "react" // babel包中的子包名
-                    //     ]
-                    // }
-                },
+                test: /\.jsx$/,
+                use: [
+                    {
+                        loader: "babel-loader"
+                        // options: { // babel的配置选项，详细信息，这里可以写在.babelrc中
+                        //     presets: [
+                        //         "env", "react" // babel包中的子包名
+                        //     ]
+                        // }
+                    },
+                    {
+                        loader: "react-hot!babel"
+                    },
+                    {
+                        loader: "eslint-loader"
+                    }
+                ],
+                // loaders: ["babel-loader", "eslint-loader"],
                 exclude: /node_modules/
             },
             {
-              test: /\.js$/,
-              exclude: /node_modules/,
-              loader: 'eslint-loader'
+                test: /\.js$/,
+                loader: ["babel-loader", "eslint-loader"],
+                // use: {
+                //     loader: "eslint-loader"
+                // },
+                exclude: /node_modules/
             },
             {
                 test: /\.css$/,
